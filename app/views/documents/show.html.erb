@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+<div id="page_title">
+<d1>  
+  <dt><h1>Document Title: </h1></dt>
+  <% file_name = @document.file_path.split(/\//) %>
+  <dd><h3><%= file_name[file_name.length-1]%></h3></dd>
+</div>
+
+<p>
+  <dt><h1>Author: </h1></dt>
+  <dd><h3><%= file_name[file_name.length-2]%></h3></dd>
+</p>
+</d1>
+
+<p>
+<div> <h1> Contents: </h1> </div>
+<% file = File.open("#{@document_path}", "rb") %>
+<form><textarea cols="200" rows="12">
+<%= contents = file.read %></textarea>
+</form>
+<% file.close %>
+</p>
+
+<p>
+<div> <h1>Top Topics:</h1>  </div>
+<table>
+<tr><th>Topic Proportion</th><th>Topic Cloud</th></tr>
+ <% @topic_weight_hash.sort_by {|k, v| v}.reverse.each do | pair | %>
+<tr>
+   <td><%= pair.last %>
+   </td>
+   <td><%= Topic.find(pair.first).getKeywords %>
+   </td>
+ <%end%>
+</tr>
+</table>
+</p>

@@ -1,0 +1,8 @@
+<h1>List of All Authors</h1>
+
+<ul>
+<% Auth.find(:all, :select => "distinct auth").each do |auth| %>
+    <li><%= link_to "#{auth.auth}", auth_path(auth.auth) %>
+<% end %>
+</ul>
+<br />

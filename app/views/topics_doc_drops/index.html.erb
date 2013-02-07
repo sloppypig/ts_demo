@@ -1,0 +1,27 @@
+<h1>Listing topics_doc_drops</h1>
+
+<table>
+  <tr>
+    <th>Doc</th>
+    <th>Topic</th>
+    <th>Weight</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @topics_doc_drops.each do |topics_doc_drop| %>
+  <tr>
+    <td><%= topics_doc_drop.doc_id %></td>
+    <td><%= topics_doc_drop.topic_id %></td>
+    <td><%= topics_doc_drop.weight %></td>
+    <td><%= link_to 'Show', topics_doc_drop %></td>
+    <td><%= link_to 'Edit', edit_topics_doc_drop_path(topics_doc_drop) %></td>
+    <td><%= link_to 'Destroy', topics_doc_drop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Topics doc drop', new_topics_doc_drop_path %>

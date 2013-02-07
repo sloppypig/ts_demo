@@ -1,0 +1,20 @@
+<div id="page_title"><h1>Topics List(Labs Wiki):</h1></div>
+<table>
+<tr>
+<th>Topic ID</th>
+<th colspan="19">Associated Words</th>
+</tr>
+<div id="rows">
+<% @topics.each do |topic| %>
+  <tr>
+    
+    <td width="100"><strong><%= link_to "Topic #{topic.id}", topic_documents_path(topic.id)  %></strong></td> 
+    <% (1..19).each do |i| %>
+        <% attr = "word_" + "#{i}" %>
+        <td><dfn><%= link_to "#{topic[attr]}", word_path(topic[attr]) %></dfn></td>
+    <% end %>
+
+  </tr>
+</div>
+<% end %>
+</table>

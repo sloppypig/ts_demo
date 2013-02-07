@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<div id="page_title">
+  <h1>KeyWord: </h1>
+  <h3><%= @word.word %></h3>
+</div>
+<p>
+<div> <h1>Top Topics:</h1>  </div>
+<table>
+<tr><th>Frequency Counts</th><th>Topic Cloud</th></tr>
+ <% @count_hash.sort_by {|k, v| v}.reverse.each do | pair | %>
+<tr>
+   <td><%= pair.last %>
+   </td>
+   <td><%= Topic.find(pair.first).getKeywords %>
+   </td>
+ <%end%>
+</tr>
+</table>
+</p>
+

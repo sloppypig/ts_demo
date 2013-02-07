@@ -1,0 +1,21 @@
+<d1><div id="page_title"><dt><h1>Topic <%=@id %>:</h1></dt></div>
+<div id="keyword_list"><dd><h4><%=  @keywords%></id></h4></dd></div>
+</d1>
+<br/>
+<div id="page_title"><h1>Ordered List of Documents for Topic <%=@id %>:</h1></div>
+<div class="centered">
+<table>
+<th>Document Title</th><th>Author</th><th>Topic Proportion</th>
+<% (0..@count-1).each do |idx| %>
+<% doc_id = @docidlist.at(idx) %>
+<% puts @docidlist.at(idx) %>
+<tr>
+  <td><%= link_to "#{@docpathlist.at(idx).split(/\//).last}", document_path(doc_id) %></td>
+  <td><%= link_to "#{@authlist.at(idx)}", auth_path(@authlist.at(idx)) %></td>
+  <td><%= @weightlist.at(idx) %></td>
+</tr>
+<% end %>
+</table>
+</div>
+<!-- <div><%= Topic.find(1).documents %> </div> -->
+<!-- <div><%= Document.find(1).topics %></div> -->

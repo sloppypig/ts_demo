@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Doc:</b>
+  <%= @topics_doc_drop.doc_id %>
+</p>
+
+<p>
+  <b>Topic:</b>
+  <%= @topics_doc_drop.topic_id %>
+</p>
+
+<p>
+  <b>Weight:</b>
+  <%= @topics_doc_drop.weight %>
+</p>
+
+
+<%= link_to 'Edit', edit_topics_doc_drop_path(@topics_doc_drop) %> |
+<%= link_to 'Back', topics_doc_drops_path %>

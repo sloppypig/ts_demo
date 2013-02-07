@@ -1,0 +1,9 @@
+<h1>List of All Words</h1>
+
+<ul>
+<% Word.find(:all, :select => "distinct word").each do |word| %>
+    <li><%= link_to "#{word.word}", word_path(word.word) %>
+<% end %>
+</ul>
+<br />
+

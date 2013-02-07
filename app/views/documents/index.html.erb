@@ -1,0 +1,15 @@
+<h1>List of All documents</h1>
+
+<table class="centered">
+  <tr>
+    <th>Document Title</th>
+  </tr>
+
+<% @documents.each do |document| %>
+  <tr>
+    <td><%= link_to "#{document.file_path.split(/\//).last}",  document_path(document.id) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
